@@ -11,7 +11,8 @@ function App() {
     <Encabezado/>
 
     <h2>Nova</h2>
-    <Nova></Nova>
+    <Nova titulo="Este é o título" contido="Contido da nova primeira"/>
+    <Nova titulo="Este é outro título" contido="Contido da nova segunda"/>
     </>
   );
 }
