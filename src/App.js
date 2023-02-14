@@ -34,6 +34,8 @@ function App() {
     <h2>Encabezado</h2>
     <Encabezado/>
 
+    
+
     <h2>Novas</h2>
     {componentesNovas}
     </>
