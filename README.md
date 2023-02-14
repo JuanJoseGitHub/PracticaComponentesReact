@@ -125,3 +125,69 @@ export default NombreComponente
     text-align: center;
 }
 ```
+## Hooks
+
+### useState
+Es el hook más frecuente en los componentes. Resulta dificil hacer un componente de React que no emplee `useState`.
+
+Tienen dos finalidades:
+- Permiten que los componentes de React "recuerden" valores.
+- Permiten que React sea notificado de cambios en estos valores para que puede actualizar la información relacionada que se muestra en la pantalla.
+
+Está compuesto de una constante en la que se almacena el estado que pretendemos que el componente recuerde y una función que nos permite actualizar el valor del estado.
+
+Ejemplo de contador:
+
+```jsx
+// Impotamos useState para poder usarlo
+import { useState } from "react";
+function Contador () {
+    // Creamos el estado y asignamos el valor inicial con useState
+    const [ contador, setContador] = useState(0)
+    function manexadorDoClick () {
+        // Usamos el setter cuando queremos cambiar el valor del estado
+        setContador(contador+1)
+    }
+    return (
+        <>
+        <!-- Usamos o estado para acceder ó valor -->
+        <p>Total: {contador}</p>
+        <button onClick={manexadorDoClick}>
+            Contar
+        </button>
+        </>
+    )
+}
+export default Contador
+```
+Ejemplo de useState para controlar elementos de formulario:
+```jsx
+import { useState } from "react"
+function Registro() {
+    let [ nombre, setNombre ] = useState("")
+    /**
+    El manejador se encarga de acceder al contenido introducido en el input
+    y de actualizar con el el valor del estado.
+    */
+    function manejadorDeEntradasEnNombre(evento) {
+        const nuevoValor = evento.target.value
+        setNome(nuevoValor);
+    }
+    return (
+        <>
+        <label>
+            Nombre:
+            <!--
+                Actualizamos el valor del input asignandole el 
+                valor almacenado en el estado.
+                Cuando se introduce un nuevo valor en el input llamamos
+                al manejador para actualizar el estado.
+            -->
+            <input type="text" name="nombre" value={nombre} onInput={manejadorDeEntradasEnNombre}/>
+            <p>Este es el contenido en maiusculas: {nombre.toUpperCase()}</p>
+        </label>
+        </>
+    )
+}
+export default Rexistro
+```
