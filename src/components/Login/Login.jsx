@@ -13,7 +13,7 @@ function Login() {
       <form className={styles.login}>
         <input type="text" name="usuario" onInput={manexadorNomeDeUsuario}/>
         <input type="password" name="contrasinal"/>
-        <input type="submit" value="Enviar" />
+        <input className={styles.boton} type="submit" value="Enviar" />
         <p>¿Que hai en nomeUsuario: {nomeUsuario}</p>
       </form>
     );
